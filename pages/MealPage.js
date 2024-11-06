@@ -1,6 +1,7 @@
 import React from 'react';
-import { Image, Pressable, ScrollView, Text, TextInput, View } from "react-native";
-import { styles } from "../styles/styles";  // Assuming styles are correctly defined here
+import { Image, ImageBackground, Pressable, ScrollView, Text, TextInput, View } from "react-native";
+import { styles } from "../styles/styles";
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 // Imported images
 import SnacksImage from '../images/snacks.jpg';
@@ -11,14 +12,17 @@ import SteakImage from '../images/steak.jpg';
 import VeganImage from '../images/vegan.jpg';
 import BerryImage from '../images/strawberries.jpg';
 import PastaImage from '../images/pasta.jpg';
+import BackgroundImage from '../images/background.jpg';
 
 
 
 export default function MealPage() {
     return (
+        <ImageBackground source={BackgroundImage} resizeMode="cover" style={styles.background}>
         <View style={styles.container}>
             {/* Search Bar */}
             <View style={styles.searchRow}>
+                <FontAwesome name="search" size={20} color="#6A994E" style={styles.icon} />
                 <TextInput style={styles.textInput} placeholder="Search for meals..." />
             </View>
 
@@ -76,5 +80,6 @@ export default function MealPage() {
                 </View>
             </ScrollView>
         </View>
+        </ImageBackground>
     );
 }

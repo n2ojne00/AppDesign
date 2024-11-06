@@ -1,6 +1,7 @@
 import React from 'react';
-import { Image, Pressable, ScrollView, Text, TextInput, View } from "react-native";
-import { styles } from "../styles/styles";  // Assuming styles are correctly defined here
+import { Image, ImageBackground, Pressable, ScrollView, Text, TextInput, View } from "react-native";
+import { styles } from "../styles/styles";
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 // Imported images
 import BeerImage from '../images/Beer.jpg';
@@ -8,13 +9,16 @@ import ColdImage from '../images/cold.jpg';
 import HotImage from '../images/hotdrink.jpg';
 import ShotsImage from '../images/shots.jpg';
 import PunchImage from '../images/booli.jpg';
+import BackgroundImage from '../images/background.jpg';
 
 
 export default function CocktailPage() {
     return (
+        <ImageBackground source={BackgroundImage} resizeMode="cover" style={styles.background}>
         <View style={styles.container}>
             {/* Search Bar */}
             <View style={styles.searchRow}>
+                <FontAwesome name="search" size={20} color="#6A994E" style={styles.icon} />
                 <TextInput style={styles.textInput} placeholder="Search for drinks..." />
             </View>
 
@@ -59,5 +63,6 @@ export default function CocktailPage() {
  
             </ScrollView>
         </View>
+        </ImageBackground>
     );
 }
